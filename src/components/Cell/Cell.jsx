@@ -9,7 +9,7 @@ function Cell({
   hasWinningConfiguration,
   gameStatus,
   updateGameStatus,
-  usedCells,
+  animate,
 }) {
   function handleClick(rowIdx, colIdx) {
     if (gameStatus !== "inProgress") return;
@@ -23,7 +23,9 @@ function Cell({
 
   return (
     <div
-      className="bg-rose-500 flex items-center justify-center"
+      className={`bg-rose-500 flex items-center justify-center ${
+        animate === true ? "animate" : ""
+      }`}
       onClick={() => handleClick(position.rowIdx, position.colIdx)}
     >
       {value === "X" ? (

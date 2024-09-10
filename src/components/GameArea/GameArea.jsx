@@ -11,6 +11,7 @@ function GameArea() {
   const [usedCells, setUsedCells] = useState(0);
   const [player, setPlayer] = useState({ name: "Player X", value: "X" });
   const [gameStatus, setGameStatus] = useState("idle");
+  const [winningPositions, setWinningPositions] = useState([]);
 
   function togglePlayer() {
     if (player.name === "Player X") {
@@ -60,6 +61,8 @@ function GameArea() {
           togglePlayer={togglePlayer}
           gameStatus={gameStatus}
           updateGameStatus={updateGameStatus}
+          winningPositions={winningPositions}
+          setWinningPositions={setWinningPositions}
         />
       </div>
       <div className="w-[50%] h-full bg-zinc-900 flex flex-row items-center justify-center">
@@ -68,6 +71,7 @@ function GameArea() {
           gameStatus={gameStatus}
           updateGameStatus={updateGameStatus}
           resetBoard={resetBoard}
+          setWinningPositions={setWinningPositions}
         />
       </div>
     </>

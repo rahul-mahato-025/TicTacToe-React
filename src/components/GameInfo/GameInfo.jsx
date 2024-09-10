@@ -1,7 +1,13 @@
 import Button from "../Button/Button";
 import { CgBoy } from "react-icons/cg";
 
-function GameInfo({ player, gameStatus, updateGameStatus, resetBoard }) {
+function GameInfo({
+  player,
+  gameStatus,
+  updateGameStatus,
+  resetBoard,
+  setWinningPositions,
+}) {
   if (gameStatus === "idle")
     return (
       <div className="flex flex-col items-center justify-center gap-8">
@@ -29,6 +35,7 @@ function GameInfo({ player, gameStatus, updateGameStatus, resetBoard }) {
           onClick={() => {
             updateGameStatus("inProgress");
             resetBoard();
+            setWinningPositions([]);
           }}
           text={"Restart"}
         />
